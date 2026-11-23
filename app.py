@@ -41,10 +41,13 @@ def function(message, history):
 demo = gr.ChatInterface(
     fn=function,
     # 3. title, theme 등 속성 설정하기
-    title="제목없음",
+    title="ai챗봇",
     theme=gr.themes.Soft(),
-    description="설명없음"
+    description="무엇이든 편하게 물어보세요!"
 )
 
 # 챗봇 객체를 실행해요.
-demo.launch(share=True)
+demo.launch(
+    server_name="0.0.0.0",
+    server_port=int(os.environ.get("PORT", 7860))
+)
