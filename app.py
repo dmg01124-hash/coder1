@@ -39,10 +39,12 @@ def function(message, history):
 # 챗봇 객체를 생성해요.
 demo = gr.ChatInterface(
     fn=function,
-    # 3. title, theme 등 속성 설정하기
-    title="ai챗봇",
-    theme=gr.themes.Soft(),
-    description="무엇이든 편하게 물어보세요!"
+    title="AI 챗봇",
+    description="무엇이든 편하게 물어보세요!",
+    chatbot=gr.Chatbot(height=500),
+    textbox=gr.Textbox(placeholder="메시지를 입력하세요...", container=False, scale=7),
+    examples=["오늘 저녁 메뉴 추천해줘", "파이썬 리스트와 튜플의 차이가 뭐야?", "간단한 응원 메시지 써줘"],
+    cache_examples=False,
 )
 
 # 챗봇 객체를 실행해요.
